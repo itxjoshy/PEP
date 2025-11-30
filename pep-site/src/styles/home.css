@@ -41,3 +41,22 @@
 .home-main .cta button:hover {
   rotate: -20deg;
 }
+.container {
+  position: relative;
+  overflow: hidden; /* hide excess from tilt */
+  perspective: 500px; /* perspective for children */
+}
+.container::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 200%; /* make it extra wide so tilt reaches edges */
+  height: 400px; /* enough height for perspective */
+  background: linear-gradient(#cacacaa4 1px, transparent 1px) 0 0 / 100px 100px,
+    linear-gradient(90deg, #cacacaa4 1px, transparent 1px) 0 0 / 150px 150px;
+  opacity: 0.5;
+  pointer-events: none;
+  transform: translateX(-50%) rotateX(60deg);
+  transform-origin: center;
+}

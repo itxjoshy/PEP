@@ -16,8 +16,8 @@ function Home() {
           <button className="get-started-btn">&#8594;</button>
         </div>
       </main>
-      <div className="container">
-        <section>
+      <div className="container ">
+        <section className="about-pep">
           <p>
             PEP is designed to streamline your project workflows and enhance
             team collaboration.
