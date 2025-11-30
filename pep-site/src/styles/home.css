@@ -1,0 +1,43 @@
+.Home {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.368),
+      rgba(0, 0, 0, 0.368),
+      rgba(0, 0, 0, 0.368),
+      rgba(0, 0, 0, 0.892)
+    ),
+    url("../assets/hero-bg.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+}
+.home-main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  gap: 4rem;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 16/7;
+  color: white;
+}
+.home-main h1 {
+  font-size: 4rem;
+}
+.home-main .cta {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-weight: 500;
+}
+.home-main .cta button {
+  border-radius: 30px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+.home-main .cta button:hover {
+  rotate: -20deg;
+}
