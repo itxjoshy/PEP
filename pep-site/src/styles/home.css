@@ -41,12 +41,20 @@
 .home-main .cta button:hover {
   rotate: -20deg;
 }
-.container {
+.about-pep {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 2fr 1.1fr;
+  padding: 6rem 2rem;
+}
+.grid-floor {
   position: relative;
   overflow: hidden; /* hide excess from tilt */
   perspective: 500px; /* perspective for children */
+  height: 100%;
 }
-.container::after {
+.grid-floor::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -59,4 +67,379 @@
   pointer-events: none;
   transform: translateX(-50%) rotateX(60deg);
   transform-origin: center;
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.314) 70%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgb(0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.339) 70%
+  );
+  z-index: -1;
+}
+.about-pep h1 {
+  font-size: 3rem;
+  align-self: flex-start;
+  font-weight: 500;
+}
+.about-pep .about-text {
+  max-width: 600px;
+  align-self: flex-start;
+}
+.about-pep h1 .highlight {
+  color: #f9a825; /* orange highlight */
+}
+.about-pep p {
+  line-height: 1.6;
+  font-size: 1.125rem;
+  color: rgb(187, 187, 187);
+}
+.about-pep .btn {
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+}
+.work-case {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 2rem;
+  padding-top: 6rem;
+}
+.work-case div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.work-case h3 {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.work-case img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.work-case img:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+/* Services horizontal scrolling carousel */
+.services-section {
+  padding: 4rem 2rem;
+}
+.services-section h2 {
+  margin: 0 0 1rem 0;
+  color: white;
+  font-weight: 500;
+}
+
+.services-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional thin scrollbar styling */
+.services-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+
+.service-card {
+  flex: 0 0 280px; /* card width */
+  min-width: 220px;
+  scroll-snap-align: start;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* service card media + overlay */
+.service-card {
+  padding: 0; /* override previous padding so media spans full width */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+}
+
+.service-card .media {
+  width: 100%;
+  height: 70%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.service-card .media-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.705),
+    rgba(0, 0, 0, 0.032)
+  );
+  display: flex;
+  align-items: flex-end;
+}
+
+.service-card .media-overlay h4,
+.service-card .media-overlay strong {
+  color: #fff;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.service-card .card-body {
+  padding: 1rem;
+}
+
+.service-card .card-body p {
+  margin: 0;
+  color: rgb(187, 187, 187);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* hover lift for media */
+.service-card:hover .media {
+  transform: scale(1.03);
+}
+
+/* view-all specific media (optional subtle background) */
+.service-card.view-all .view-all-media {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 168, 37, 0.12),
+    rgba(255, 255, 255, 0.02)
+  );
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* carousel nav buttons */
+.services-section {
+  position: relative; /* needed for absolutely positioned nav */
+}
+.services-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* wrapper for both nav buttons */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* allow clicks only on buttons */
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  z-index: 20;
+}
+
+.carousel-nav .nav {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 255, 255);
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+/* Slight lift on hover/focus for affordance */
+.carousel-nav .nav:hover,
+.carousel-nav .nav:focus {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.65);
+  outline: none;
+}
+
+/* hide nav on very small screens where touch scrolling is preferred */
+@media (max-width: 520px) {
+  .carousel-nav {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .service-card {
+    flex: 0 0 78%;
+  }
+  .services-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .service-card {
+    min-height: 200px;
+  }
+  .service-card .media {
+    height: 160px;
+  }
+}
+@media (max-width: 900px) {
+  .about-pep {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+  .about-pep h1 {
+    align-self: center;
+  }
+  .about-pep .about-text {
+    align-self: center;
+  }
+  .work-case {
+    grid-template-columns: 1fr;
+  }
+}
+.service-expand {
+  max-width: 1300px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  height: 2000px;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+}
+
+.service-expand .solar-image {
+  position: absolute;
+  left: -400px;
+  width: 900px;
+  height: 900px;
+  object-fit: cover;
+  top: -270px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  align-items: center;
+  padding: 2.25rem;
+  background: linear-gradient(
+    90deg,
+    rgba(249, 168, 37, 0.06),
+    rgba(0, 0, 0, 0.18)
+  );
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  min-height: 96px;
+  justify-content: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.stat .stat-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.stat .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.stat h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat p {
+  margin: 0;
+  color: rgb(200, 200, 200);
+  font-size: 0.95rem;
+}
+
+/* responsive tweak: compact layout on very small screens */
+@media (max-width: 420px) {
+  .stats {
+    padding: 1rem;
+    gap: 0.65rem;
+  }
+  .stat {
+    padding: 0.75rem;
+  }
+  .stat h2 {
+    font-size: 1.1rem;
+  }
 }
