@@ -1,23 +1,39 @@
-.Home {
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.368),
-      rgba(0, 0, 0, 0.368),
-      rgba(0, 0, 0, 0.368),
-      rgba(0, 0, 0, 0.892)
-    ),
-    url("../assets/hero-bg.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
+.main-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport */
+  overflow: hidden; /* hide video edges */
+}
+.main-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.307);
+  z-index: 0;
 }
 .home-main {
   display: flex;
   flex-direction: column;
-  margin-top: 8rem;
-  gap: 4rem;
+  justify-content: center; /* vertically center content */
   align-items: center;
   text-align: center;
-  aspect-ratio: 16/7;
+  gap: 20px;
   color: white;
+  height: 100%;
+}
+.home-main > * {
+  z-index: 1;
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container while keeping ratio */
+  object-position: center 30%; /* tweak focus */
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 .home-main h1 {
   font-size: 4rem;
@@ -61,7 +77,8 @@
   bottom: 0;
   width: 200%; /* make it extra wide so tilt reaches edges */
   height: 400px; /* enough height for perspective */
-  background: linear-gradient(#cacacaa4 1px, transparent 1px) 0 0 / 100px 100px,
+  background:
+    linear-gradient(#cacacaa4 1px, transparent 1px) 0 0 / 100px 100px,
     linear-gradient(90deg, #cacacaa4 1px, transparent 1px) 0 0 / 150px 150px;
   opacity: 0.5;
   pointer-events: none;
@@ -295,7 +312,9 @@ h2.highlight {
   font-size: 1.6rem;
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-  transition: transform 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 /* Slight lift on hover/focus for affordance */
@@ -413,7 +432,9 @@ h2.highlight {
   text-align: center;
   min-height: 96px;
   justify-content: center;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
   border: 1px solid rgba(255, 255, 255, 0.369);
 }
 
@@ -552,13 +573,38 @@ h2.highlight {
 .map {
   background-color: rgb(255, 255, 255);
   width: 100%;
-  height: 100%;
   height: 500px;
   border-radius: 20px;
   display: grid;
   place-items: center;
   color: #000000;
+  overflow: hidden;
 }
+.embed-map-responsive {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  height: 0;
+  padding-bottom: 83.33333333333334%;
+}
+
+.embed-map-container {
+  overflow: hidden;
+  background: none !important;
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.embed-map-frame {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /* responsive tweak: compact layout on very small screens */
 @media (max-width: 420px) {
   .stats {

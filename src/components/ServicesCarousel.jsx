@@ -1,38 +1,40 @@
 import React, { useRef } from "react";
+import greenhouse from "../assets/greenhouse.webp";
+import solarpanels from "../assets/solarpanels.webp";
+import biomas from "../assets/gas-biomas.jpg";
+import consultation from "../assets/energyconsultation.jpg";
+import training from "../assets/training.webp";
+
 import "../styles/home.css";
 
 const services = [
   {
-    image: "https://i.ibb.co/hRkTZ9Bw/solar-power-power-station.jpg",
+    image: solarpanels,
     title: "Solar Energy Solutions",
     text: "Residential, commercial, and off-grid solar systems for rural and industrial applications.",
   },
   {
-    image:
-      "https://i.ibb.co/NgvnRzCP/environmental-pollution-factory-exterior-night.jpg",
+    image: biomas,
     title: "Gas & Biomass Energy",
     text: "LNG/CNG distribution, biogas production, and waste-to-energy systems.",
   },
   {
-    image: "https://i.ibb.co/B5fr35gT/plantation-cucumbers.jpgenhouse",
+    image: greenhouse,
     title: "Energy in Agriculture",
     text: "Solar irrigation, cold storage, and renewable-powered greenhouses.",
   },
   {
-    image:
-      "https://i.ibb.co/d0CxTBJF/man-working-environment-project-close-up.jpg",
+    image: consultation,
     title: "Energy Efficiency & Consulting",
     text: "Energy audits, carbon credits, and sustainability advisory.",
   },
   {
-    image:
-      "https://i.ibb.co/j9S3r2L6/black-man-giving-presentation-meeting.jpgning",
+    image: training,
     title: "Training & Capacity Building",
     text: "Technical training and community sensitization on renewable energy.",
   },
   {
-    image:
-      "https://i.ibb.co/B23XgLv7/computer-dark-room-with-graphs-screen.jpg",
+    image: training,
     title: "Project Financing",
     text: "Grant advisory, PPP development, and investment facilitation.",
   },

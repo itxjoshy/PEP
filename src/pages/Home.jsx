@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../styles/home.css";
 import greenhouse from "../assets/greenhouse.webp";
 import solarpanels from "../assets/solarpanels.webp";
-import solar from "../assets/solar.png";
-import test from "../assets/test.png";
+import bgVid from "../assets/bg-vid.mp4";
+
 import ServicesCarousel from "../components/ServicesCarousel";
 import Header from "../components/Header";
 
@@ -42,130 +42,144 @@ function Home() {
   ];
 
   return (
-    <div className="Home">
-      <Header />
-      <main className="home-main">
-        <h1>
-          Powering Nigeria’s <br />
-          Future with Clean <br /> Energy
-        </h1>
-        <div className="cta">
-          our solution
-          <button className="get-started-btn">&#8594;</button>
+    <>
+      <div className="Home">
+        <div className="main-wrapper">
+          <Header />
+          <main className="home-main">
+            <video
+              className="hero-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="fallback.jpg"
+            >
+              <source src={bgVid} type="video/mp4" />
+            </video>
+            <h1>
+              Powering Nigeria’s <br />
+              Future with Clean <br /> Energy
+            </h1>
+            <div className="cta">
+              our solution
+              <button className="get-started-btn">&#8594;</button>
+            </div>
+          </main>
         </div>
-      </main>
-      <div className="container grid-floor">
-        <section className="about-pep">
-          <h1>
-            Shaping The Future <br />
-            <span className="highlight">Smart Tech For Green</span>
-            <br />
-            Energy And Grid Revenue
-          </h1>
-          <div className="about-text">
-            <p>
-              Pinnacle Energy Partners (PEP) is a Nigerian renewable energy
-              startup dedicated to delivering cutting-edge solutions in solar,
-              gas, biomass, and clean energy applications in agriculture.
+        <div className="container grid-floor">
+          <section className="about-pep">
+            <h1>
+              Shaping The Future <br />
+              <span className="highlight">Smart Tech For Green</span>
               <br />
-              <br /> We combine innovation with sustainability to provide
-              affordable and efficient power for Nigeria’s growing energy needs.
-              Mission: To provide affordable, sustainable, and efficient
-              renewable energy solutions that drive industrial growth and
-              enhance rural electrification in Nigeria. Vision: To be a leading
-              player in Nigeria’s clean energy sector, pioneering profitable and
-              scalable renewable energy solutions.
-            </p>
-            <button className="btn">Get Started</button>
-          </div>
-        </section>
-      </div>
-      <div className="container">
-        <ServicesCarousel />
-      </div>
-      <div className="container">
-        <section className="stats">
-          <div className="heading">
-            <h2>Impact</h2>
-            <p>numbers that matter</p>
-            <p>what we've built with our partners</p>
-          </div>
-          <div className="stat-wrapper">
-            <div className="stats-content" aria-label="Statistics">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="stat"
-                  role="group"
-                  aria-label={s.label}
-                >
-                  <div className="stat-top">
-                    <div className="icon" aria-hidden>
-                      {s.icon}
-                    </div>
-                    <Counter end={s.end} />
-                  </div>
-                  <p>{s.label}</p>
-                </div>
-              ))}
+              Energy And Grid Revenue
+            </h1>
+            <div className="about-text">
+              <p>
+                Pinnacle Energy Partners (PEP) is a Nigerian renewable energy
+                startup dedicated to delivering cutting-edge solutions in solar,
+                gas, biomass, and clean energy applications in agriculture.
+                <br />
+                <br /> We combine innovation with sustainability to provide
+                affordable and efficient power for Nigeria’s growing energy
+                needs. Mission: To provide affordable, sustainable, and
+                efficient renewable energy solutions that drive industrial
+                growth and enhance rural electrification in Nigeria. Vision: To
+                be a leading player in Nigeria’s clean energy sector, pioneering
+                profitable and scalable renewable energy solutions.
+              </p>
+              <button className="btn">Get Started</button>
             </div>
-            <div className="stat-image">
-              <img src={solarpanels} alt="" />
+          </section>
+        </div>
+        <div className="container">
+          <ServicesCarousel />
+        </div>
+        <div className="container">
+          <section className="stats">
+            <div className="heading">
+              <h2>Impact</h2>
+              <p>numbers that matter</p>
+              <p>what we've built with our partners</p>
             </div>
-          </div>
-        </section>
-      </div>
-      <div className="container">
-        <section className="why-pep">
-          <h1>Why Choose PEP?</h1>
-          <div className="bento-box">
-            <div className="left">
-              <img src={greenhouse} alt="Renewable powered greenhouse" />
-            </div>
-            <div className="right">
-              <div className="top">
-                <div className="reason">
-                  <h2>Strategic Collaboration</h2>
-                  <p>
-                    We work closely with government agencies, private sector
-                    players, and development partners to deliver energy projects
-                    that are impactful, scalable, and sustainable.
-                  </p>
-                </div>
-                <div className="reason">
-                  <h2>Affordable & Scalable Energy</h2>
-                  <p>
-                    Our solutions are designed to reduce energy costs while
-                    remaining scalable for homes, businesses, and large
-                    industrial applications.
-                  </p>
-                </div>
-              </div>
-              <div className="bottom">
-                <div className="reason">
-                  <h2>Commitment to Sustainability</h2>
-                  <p>
-                    We design and deploy clean energy solutions that
-                    significantly reduce carbon emissions and dependence on
-                    fossil fuels. Our approach prioritizes environmentally
-                    responsible technologies that support climate resilience,
-                    protect natural resources, and deliver long-term value for
-                    communities and businesses.
-                  </p>
-                  <button
-                    style={{
-                      marginTop: "1rem",
-                    }}
+            <div className="stat-wrapper">
+              <div className="stats-content" aria-label="Statistics">
+                {stats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="stat"
+                    role="group"
+                    aria-label={s.label}
                   >
-                    Read more
-                  </button>
+                    <div className="stat-top">
+                      <div className="icon" aria-hidden>
+                        {s.icon}
+                      </div>
+                      <Counter end={s.end} />
+                    </div>
+                    <p>{s.label}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="stat-image">
+                <img src={solarpanels} alt="" />
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className="container">
+          <section className="why-pep">
+            <h1>Why Choose PEP?</h1>
+            <div className="bento-box">
+              <div className="left">
+                <img src={greenhouse} alt="Renewable powered greenhouse" />
+              </div>
+              <div className="right">
+                <div className="top">
+                  <div className="reason">
+                    <h2>Strategic Collaboration</h2>
+                    <p>
+                      We work closely with government agencies, private sector
+                      players, and development partners to deliver energy
+                      projects that are impactful, scalable, and sustainable.
+                    </p>
+                  </div>
+                  <div className="reason">
+                    <h2>Affordable & Scalable Energy</h2>
+                    <p>
+                      Our solutions are designed to reduce energy costs while
+                      remaining scalable for homes, businesses, and large
+                      industrial applications.
+                    </p>
+                  </div>
+                </div>
+                <div className="bottom">
+                  <div className="reason">
+                    <h2>Commitment to Sustainability</h2>
+                    <p>
+                      We design and deploy clean energy solutions that
+                      significantly reduce carbon emissions and dependence on
+                      fossil fuels. Our approach prioritizes environmentally
+                      responsible technologies that support climate resilience,
+                      protect natural resources, and deliver long-term value for
+                      communities and businesses.
+                    </p>
+                    <button
+                      style={{
+                        marginTop: "1rem",
+                      }}
+                    >
+                      Read more
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-      {/* <div className="container">
+          </section>
+        </div>
+        {/* <div className="container">
         <div className="content" style={{ paddingTop: "4rem" }}>
           <section className="service-expand">
             <h1>josh</h1>
@@ -173,39 +187,53 @@ function Home() {
           </section>
         </div>
       </div> */}
-      <div className="container">
-        <section className="contact">
-          <p>Reach Us</p>
-          <h2 className="highlight">Get in touch</h2>
-          <p
-            style={{
-              fontWeight: "normal",
-            }}
-          >
-            Have questions about PEP or reneawble energy solutions ?
-          </p>
-          <div className="contact-section-content">
-            <div className="contact-info">
-              <div className="info-item">
-                <h3>Email</h3>
-                <p>Send us a message</p>
-                <p>pep.org.email</p>
+        <div className="container">
+          <section className="contact">
+            <p>Reach Us</p>
+            <h2 className="highlight">Get in touch</h2>
+            <p
+              style={{
+                fontWeight: "normal",
+              }}
+            >
+              Have questions about PEP or reneawble energy solutions ?
+            </p>
+            <div className="contact-section-content">
+              <div className="contact-info">
+                <div className="info-item">
+                  <h3>Email</h3>
+                  <p>Send us a message</p>
+                  <p>pep.org.email</p>
+                </div>
+                <div className="info-item">
+                  <h3>Phone</h3>
+                  <p>Call our team directly</p>
+                  <p>+1 (243) 555-222</p>
+                </div>
+                <div className="info-item">
+                  <h3>Office</h3>
+                  <p>Flat 3, Khariz Court, Abuja</p>
+                </div>
               </div>
-              <div className="info-item">
-                <h3>Phone</h3>
-                <p>Call our team directly</p>
-                <p>+1 (243) 555-222</p>
-              </div>
-              <div className="info-item">
-                <h3>Office</h3>
-                <p>Flat 3, Khariz Court, Abuja</p>
+              <div className="map">
+                <div class="embed-map-responsive">
+                  <div class="embed-map-container">
+                    <iframe
+                      class="embed-map-frame"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?width=600&height=500&hl=en&q=khariz-c&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="map">map</div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
